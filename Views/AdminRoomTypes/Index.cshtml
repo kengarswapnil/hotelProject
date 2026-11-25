@@ -1,0 +1,28 @@
+@model List<RoomType>
+@{ ViewData["Title"] = "Room types"; }
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="h3 mb-0">Room types</h1>
+    <a class="btn btn-accent" asp-action="Create"><i class="bi bi-plus-lg me-1"></i>Add type</a>
+</div>
+<div class="card"><div class="table-responsive">
+<table class="table table-hover mb-0">
+    <thead class="table-light"><tr><th>Name</th><th>Price / night</th><th>Max guests</th><th>Rooms</th><th></th></tr></thead>
+    <tbody>
+    @foreach (var t in Model)
+    {
+        <tr>
+            <td class="fw-semibold">@t.Name</td>
+            <td>@Ui.Money(t.BasePrice)</td>
+            <td>@t.Capacity</td>
+            <td>@t.Rooms.Count</td>
+            <td class="text-end text-nowrap">
+                <a class="btn btn-outline-primary btn-sm" asp-action="Edit" asp-route-id="@t.Id">Edit</a>
+                <form method="post" asp-action="Delete" asp-route-id="@t.Id" class="d-inline" onsubmit="return confirm('Delete this room type?');">
+                    <button class="btn btn-outline-danger btn-sm" type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+</div></div>

@@ -1,0 +1,96 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EntryPointFilePath = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = HotelBooking.Web
+build_property.RootNamespace = HotelBooking.Web
+build_property.ProjectDir = C:\Users\kenga\Downloads\HotelBookingSystem\HotelBookingSystem\src\HotelBooking.Web\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\kenga\Downloads\HotelBookingSystem\HotelBookingSystem\src\HotelBooking.Web
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/kenga/Downloads/HotelBookingSystem/HotelBookingSystem/src/HotelBooking.Web/Views/Account/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kenga/Downloads/HotelBookingSystem/HotelBookingSystem/src/HotelBooking.Web/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kenga/Downloads/HotelBookingSystem/HotelBookingSystem/src/HotelBooking.Web/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kenga/Downloads/HotelBookingSystem/HotelBookingSystem/src/HotelBooking.Web/Views/AdminBookings/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5Cb29raW5nc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kenga/Downloads/HotelBookingSystem/HotelBookingSystem/src/HotelBooking.Web/Views/AdminRooms/Form.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5Sb29tc1xGb3JtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kenga/Downloads/HotelBookingSystem/HotelBookingSystem/src/HotelBooking.Web/Views/AdminRooms/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5Sb29tc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kenga/Downloads/HotelBookingSystem/HotelBookingSystem/src/HotelBooking.Web/Views/AdminRoomTypes/Form.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5Sb29tVHlwZXNcRm9ybS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kenga/Downloads/HotelBookingSystem/HotelBookingSystem/src/HotelBooking.Web/Views/AdminRoomTypes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5Sb29tVHlwZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kenga/Downloads/HotelBookingSystem/HotelBookingSystem/src/HotelBooking.Web/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kenga/Downloads/HotelBookingSystem/HotelBookingSystem/src/HotelBooking.Web/Views/Bookings/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ3NcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kenga/Downloads/HotelBookingSystem/HotelBookingSystem/src/HotelBooking.Web/Views/Bookings/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ3NcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kenga/Downloads/HotelBookingSystem/HotelBookingSystem/src/HotelBooking.Web/Views/Bookings/Mine.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ3NcTWluZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kenga/Downloads/HotelBookingSystem/HotelBookingSystem/src/HotelBooking.Web/Views/Home/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFcnJvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kenga/Downloads/HotelBookingSystem/HotelBookingSystem/src/HotelBooking.Web/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kenga/Downloads/HotelBookingSystem/HotelBookingSystem/src/HotelBooking.Web/Views/Rooms/Search.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbXNcU2VhcmNoLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kenga/Downloads/HotelBookingSystem/HotelBookingSystem/src/HotelBooking.Web/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kenga/Downloads/HotelBookingSystem/HotelBookingSystem/src/HotelBooking.Web/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kenga/Downloads/HotelBookingSystem/HotelBookingSystem/src/HotelBooking.Web/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

@@ -1,0 +1,42 @@
+@model BookingCreateVm
+@{ ViewData["Title"] = "Confirm booking"; var t = Model.RoomType!; }
+<h1 class="h3 mb-3">Confirm your booking</h1>
+<div class="row g-4">
+    <div class="col-lg-7">
+        <div class="card card-body">
+            <form method="post" asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger py-2 small"></div>
+                <input type="hidden" name="RoomTypeId" value="@Model.RoomTypeId" />
+                <input type="hidden" name="CheckIn" value="@Ui.Iso(Model.CheckIn)" />
+                <input type="hidden" name="CheckOut" value="@Ui.Iso(Model.CheckOut)" />
+                <div class="mb-3">
+                    <label asp-for="Guests" class="form-label">Number of guests</label>
+                    <input asp-for="Guests" type="number" class="form-control" min="1" max="@t.Capacity" />
+                    <div class="form-text">This room allows up to @t.Capacity guests.</div>
+                    <span asp-validation-for="Guests" class="text-danger small"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Notes" class="form-label"></label>
+                    <textarea asp-for="Notes" class="form-control" rows="3" maxlength="500"></textarea>
+                    <span asp-validation-for="Notes" class="text-danger small"></span>
+                </div>
+                <button type="submit" class="btn btn-accent btn-block-mobile">Confirm booking</button>
+                <a class="btn btn-link" asp-controller="Rooms" asp-action="Search"
+                   asp-route-checkIn="@Ui.Iso(Model.CheckIn)" asp-route-checkOut="@Ui.Iso(Model.CheckOut)">Back</a>
+            </form>
+        </div>
+    </div>
+    <div class="col-lg-5">
+        <div class="card card-body">
+            <h2 class="h5">@t.Name</h2>
+            <dl class="row mb-0 small">
+                <dt class="col-5">Check-in</dt><dd class="col-7">@Ui.D(Model.CheckIn)</dd>
+                <dt class="col-5">Check-out</dt><dd class="col-7">@Ui.D(Model.CheckOut)</dd>
+                <dt class="col-5">Nights</dt><dd class="col-7">@Model.Nights</dd>
+                <dt class="col-5">Rate</dt><dd class="col-7">@Ui.Money(t.BasePrice) / night</dd>
+                <dt class="col-5">Total</dt><dd class="col-7 fw-bold">@Ui.Money(Model.Total)</dd>
+            </dl>
+            <p class="small text-muted mt-3 mb-0">Free cancellation until the day before check-in. A room number is assigned automatically.</p>
+        </div>
+    </div>
+</div>

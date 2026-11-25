@@ -1,0 +1,87 @@
+@model SearchViewModel
+@{ ViewData["Title"] = "Find a room"; var today = AvailabilityService.Today; }
+
+<h1 class="h3 mb-3">Find a room</h1>
+
+<form method="get" class="card card-body mb-4">
+    <div class="row g-2">
+        <div class="col-6 col-md-3">
+            <label class="form-label small mb-1">Check-in</label>
+            <input type="date" name="checkIn" class="form-control" min="@Ui.Iso(today)" value="@Ui.Iso(Model.CheckIn)" required />
+        </div>
+        <div class="col-6 col-md-3">
+            <label class="form-label small mb-1">Check-out</label>
+            <input type="date" name="checkOut" class="form-control" min="@Ui.Iso(today.AddDays(1))" value="@Ui.Iso(Model.CheckOut)" required />
+        </div>
+        <div class="col-6 col-md-2">
+            <label class="form-label small mb-1">Guests</label>
+            <input type="number" name="guests" class="form-control" min="1" max="10" value="@Model.Guests" required />
+        </div>
+        <div class="col-6 col-md-2">
+            <label class="form-label small mb-1">Room type</label>
+            <select name="roomTypeId" class="form-select">
+                <option value="">Any</option>
+                @foreach (var t in Model.AllTypes)
+                {
+                    <option value="@t.Id" selected="@(Model.RoomTypeId == t.Id)">@t.Name</option>
+                }
+            </select>
+        </div>
+        <div class="col-12 col-md-2 d-flex align-items-end">
+            <button class="btn btn-accent w-100" type="submit">Search</button>
+        </div>
+    </div>
+</form>
+
+@if (Model.Error != null)
+{
+    <div class="alert alert-warning">@Model.Error</div>
+}
+else if (Model.Results != null)
+{
+    @if (!Model.Results.Any())
+    {
+        <div class="alert alert-info">No room types fit @Model.Guests guests. Try fewer guests or a different type.</div>
+    }
+    <div class="row g-3">
+        @foreach (var r in Model.Results)
+        {
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row g-3 align-items-center">
+                            <div class="col-md-7">
+                                <h2 class="h5 mb-1">@r.Type.Name</h2>
+                                <p class="text-muted mb-2">@r.Type.Description</p>
+                                <div class="mb-1">
+                                    @foreach (var a in r.Type.AmenityList)
+                                    {
+                                        <span class="badge text-bg-light border me-1">@a</span>
+                                    }
+                                </div>
+                                <div class="small text-muted"><i class="bi bi-people me-1"></i>Up to @r.Type.Capacity guests</div>
+                            </div>
+                            <div class="col-md-5 text-md-end">
+                                <div class="small text-muted">@Ui.Money(r.Type.BasePrice) x @r.Nights night(s)</div>
+                                <div class="h4 mb-1">@Ui.Money(r.Total)</div>
+                                @if (r.Available > 0)
+                                {
+                                    <div class="small @(r.Available <= 2 ? "text-danger" : "text-success") mb-2">
+                                        @(r.Available <= 2 ? $"Only {r.Available} left" : "Available")
+                                    </div>
+                                    <a class="btn btn-accent btn-block-mobile" asp-controller="Bookings" asp-action="Create"
+                                       asp-route-roomTypeId="@r.Type.Id" asp-route-checkIn="@Ui.Iso(Model.CheckIn)"
+                                       asp-route-checkOut="@Ui.Iso(Model.CheckOut)" asp-route-guests="@Model.Guests">Book now</a>
+                                }
+                                else
+                                {
+                                    <span class="badge text-bg-secondary">Sold out for these dates</span>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

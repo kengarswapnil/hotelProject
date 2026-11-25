@@ -1,0 +1,19 @@
+@model RoomType
+@{ var isNew = Model.Id == 0; ViewData["Title"] = isNew ? "Add room type" : "Edit room type"; }
+<div class="row justify-content-center"><div class="col-md-8 col-lg-6">
+<div class="card card-body">
+    <h1 class="h4 mb-3">@ViewData["Title"]</h1>
+    <form method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+        <div class="mb-3"><label asp-for="Name" class="form-label"></label><input asp-for="Name" class="form-control" /><span asp-validation-for="Name" class="text-danger small"></span></div>
+        <div class="mb-3"><label asp-for="Description" class="form-label"></label><textarea asp-for="Description" class="form-control" rows="3"></textarea><span asp-validation-for="Description" class="text-danger small"></span></div>
+        <div class="row">
+            <div class="col-6 mb-3"><label asp-for="BasePrice" class="form-label"></label><input asp-for="BasePrice" class="form-control" /><span asp-validation-for="BasePrice" class="text-danger small"></span></div>
+            <div class="col-6 mb-3"><label asp-for="Capacity" class="form-label"></label><input asp-for="Capacity" class="form-control" /><span asp-validation-for="Capacity" class="text-danger small"></span></div>
+        </div>
+        <div class="mb-3"><label asp-for="Amenities" class="form-label"></label><input asp-for="Amenities" class="form-control" /><span asp-validation-for="Amenities" class="text-danger small"></span></div>
+        <p class="small text-muted">Price changes apply to new bookings only; existing bookings keep their original price.</p>
+        <button class="btn btn-accent" type="submit">Save</button>
+        <a class="btn btn-link" asp-action="Index">Cancel</a>
+    </form>
+</div></div></div>

@@ -1,0 +1,15 @@
+@model Room
+@{ var isNew = Model.Id == 0; ViewData["Title"] = isNew ? "Add room" : "Edit room"; }
+<div class="row justify-content-center"><div class="col-md-8 col-lg-6">
+<div class="card card-body">
+    <h1 class="h4 mb-3">@ViewData["Title"]</h1>
+    <form method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+        <div class="mb-3"><label asp-for="RoomNumber" class="form-label"></label><input asp-for="RoomNumber" class="form-control" /><span asp-validation-for="RoomNumber" class="text-danger small"></span></div>
+        <div class="mb-3"><label asp-for="Floor" class="form-label"></label><input asp-for="Floor" class="form-control" /><span asp-validation-for="Floor" class="text-danger small"></span></div>
+        <div class="mb-3"><label asp-for="RoomTypeId" class="form-label"></label><select asp-for="RoomTypeId" asp-items="(SelectList)ViewBag.Types" class="form-select"></select><span asp-validation-for="RoomTypeId" class="text-danger small"></span></div>
+        <div class="form-check mb-3"><input asp-for="IsActive" class="form-check-input" /><label asp-for="IsActive" class="form-check-label"></label><div><span asp-validation-for="IsActive" class="text-danger small"></span></div></div>
+        <button class="btn btn-accent" type="submit">Save</button>
+        <a class="btn btn-link" asp-action="Index">Cancel</a>
+    </form>
+</div></div></div>

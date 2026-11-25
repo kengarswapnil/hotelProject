@@ -1,0 +1,27 @@
+@model DashboardVm
+@{ ViewData["Title"] = "Dashboard"; }
+<h1 class="h3 mb-3">Dashboard <small class="text-muted fs-6">@Ui.D(AvailabilityService.Today)</small></h1>
+<div class="row g-3 mb-4">
+    <div class="col-6 col-lg-3"><div class="card card-body"><div class="small text-muted">Occupancy today</div><div class="stat">@Model.OccupancyPercent%</div><div class="small text-muted">@Model.OccupiedToday of @Model.TotalRooms rooms</div></div></div>
+    <div class="col-6 col-lg-3"><div class="card card-body"><div class="small text-muted">Arrivals today</div><div class="stat">@Model.Arrivals.Count</div></div></div>
+    <div class="col-6 col-lg-3"><div class="card card-body"><div class="small text-muted">Upcoming bookings</div><div class="stat">@Model.UpcomingBookings</div></div></div>
+    <div class="col-6 col-lg-3"><div class="card card-body"><div class="small text-muted">Revenue this month</div><div class="stat">@Ui.Money(Model.MonthRevenue)</div></div></div>
+</div>
+<div class="row g-3">
+    <div class="col-lg-6"><div class="card card-body">
+        <h2 class="h6">Today's arrivals</h2>
+        @if (!Model.Arrivals.Any()) { <p class="small text-muted mb-0">No arrivals pending.</p> }
+        <ul class="list-group list-group-flush">
+        @foreach (var b in Model.Arrivals) { <li class="list-group-item px-0 d-flex justify-content-between"><span>@b.User?.FullName - Room @b.Room?.RoomNumber</span><span class="small text-muted">@b.Reference</span></li> }
+        </ul>
+        <a class="small mt-2" asp-controller="AdminBookings" asp-action="Index" asp-route-status="Confirmed">Manage check-ins</a>
+    </div></div>
+    <div class="col-lg-6"><div class="card card-body">
+        <h2 class="h6">Today's departures</h2>
+        @if (!Model.Departures.Any()) { <p class="small text-muted mb-0">No departures pending.</p> }
+        <ul class="list-group list-group-flush">
+        @foreach (var b in Model.Departures) { <li class="list-group-item px-0 d-flex justify-content-between"><span>@b.User?.FullName - Room @b.Room?.RoomNumber</span><span class="small text-muted">@b.Reference</span></li> }
+        </ul>
+        <a class="small mt-2" asp-controller="AdminBookings" asp-action="Index" asp-route-status="CheckedIn">Manage check-outs</a>
+    </div></div>
+</div>

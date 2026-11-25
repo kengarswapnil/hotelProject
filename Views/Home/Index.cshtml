@@ -1,0 +1,44 @@
+@model List<RoomType>
+@{ ViewData["Title"] = "Home"; var today = AvailabilityService.Today; }
+
+<section class="hero p-4 p-md-5 mb-4">
+    <h1 class="display-6 fw-semibold">Book your stay at Grand Stay</h1>
+    <p class="lead mb-4">Comfortable rooms, instant confirmation, no hidden charges.</p>
+    <form method="get" asp-controller="Rooms" asp-action="Search" class="row g-2 bg-white rounded-3 p-3 text-dark">
+        <div class="col-6 col-md-3">
+            <label class="form-label small mb-1">Check-in</label>
+            <input type="date" name="checkIn" class="form-control" min="@Ui.Iso(today)" value="@Ui.Iso(today.AddDays(1))" required />
+        </div>
+        <div class="col-6 col-md-3">
+            <label class="form-label small mb-1">Check-out</label>
+            <input type="date" name="checkOut" class="form-control" min="@Ui.Iso(today.AddDays(1))" value="@Ui.Iso(today.AddDays(2))" required />
+        </div>
+        <div class="col-6 col-md-3">
+            <label class="form-label small mb-1">Guests</label>
+            <input type="number" name="guests" class="form-control" min="1" max="10" value="2" required />
+        </div>
+        <div class="col-6 col-md-3 d-flex align-items-end">
+            <button class="btn btn-accent w-100" type="submit"><i class="bi bi-search me-1"></i>Search rooms</button>
+        </div>
+    </form>
+</section>
+
+<h2 class="h4 mb-3">Our rooms</h2>
+<div class="row g-3">
+    @foreach (var t in Model)
+    {
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card h-100">
+                <div class="room-thumb"><i class="bi bi-door-open"></i></div>
+                <div class="card-body d-flex flex-column">
+                    <h3 class="h6 fw-semibold">@t.Name</h3>
+                    <p class="small text-muted">@t.Description</p>
+                    <div class="mt-auto">
+                        <div class="small mb-2"><i class="bi bi-people me-1"></i>Up to @t.Capacity guests</div>
+                        <div class="fw-semibold">@Ui.Money(t.BasePrice) <span class="small text-muted fw-normal">/ night</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
